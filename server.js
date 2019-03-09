@@ -9,13 +9,11 @@ mongoose.Promise = global.Promise;
 const app = express();
 const port = 8080;
 
-// configure body-Parser
 app.use(bodyParser.json());
 
 app.use("/api/users", users);
 
-// configure mongodb
-mongoose.connect(CONFIG.MONGODB_URI, { useNewUrlParser: true }, (error) => {
+mongoose.connect(CONFIG.MONGODB_URI, {useNewUrlParser: true}, (error) => {
     if (error) {
       console.log(error);
     } else {
